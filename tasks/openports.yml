@@ -1,0 +1,10 @@
+- name: open port for snmp
+  firewalld:
+    port: 161/udp
+    permanent: true
+    state: enabled
+
+- name: reload firewall
+  systemd:
+    name: firewalld
+    state: reloaded

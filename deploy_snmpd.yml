@@ -1,0 +1,9 @@
+##For use on Centos/RHEL systems
+---
+- hosts: snmp
+  become: yes
+  become_method: sudo
+  gather_facts: no
+  tasks:
+    - import_role:
+        name: deploy_snmp
