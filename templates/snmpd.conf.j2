@@ -1,5 +1,5 @@
 #	sec.name	source	community
-com2sec	readonly	default	nox9
+com2sec	readonly	default	{{ community }}
 
 #			sec.model	sec.name
 group	MyROGroup	v2c		readonly
@@ -11,8 +11,8 @@ view	sysView	included	system
 #			context	model	level	prefix	read 	write	notify
 access	MyROGroup	""	any	noauth	exact	all	none	none
 
-syslocation MSA 4th Floor
-syscontact AOS Administrator, support@atmos.ucla.edu
+syslocation {{ location }}
+syscontact {{ contact }}
 
 #OS Distribution Detection
 extend distro /usr/bin/distro
@@ -26,4 +26,3 @@ extend distro /usr/bin/distro
 # (uncomment for ARM platforms)
 #extend hardware '/bin/cat /sys/firmware/devicetree/base/model'
 #extend serial '/bin/cat /sys/firmware/devicetree/base/serial-number'
-#disk / 80%

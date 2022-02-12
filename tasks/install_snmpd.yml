@@ -5,28 +5,22 @@
     mode: 0755
 
 - name: Install snmp packages
-  yum: name="{{ item }}" state=latest
-  loop:
-  - net-snmp
-  - net-snmp-utils
+  yum: 
+    name:
+      - net-snmp
+      - net-snmp-utils
+    state: latest
 
 - name: copy config file
-  copy:
-    src: snmpd.conf
+  template:
+    src: snmpd.conf.j2
     dest: /etc/snmp/snmpd.conf
     owner: root
     group: root
     mode: 0600
-#  notify: systemd_reload
 
 - name: Start snmpd service
   service:
     name: snmpd
     state: started
     enabled: yes
-
-#- snmp_facts:
-#    host: moros.atmos.ucla.edu
-#    version: v2c
-#    community: nox9
-#  delegate_to: local
