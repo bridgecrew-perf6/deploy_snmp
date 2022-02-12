@@ -1,9 +1,0 @@
-- name: Restart SNMP
-  service:
-    name: snmpd
-    state: restarted
-  listen: event_restart_snmpd
-
-#- name: Systemd daemon-reload
-#  command: systemctl daemon-reload
-#  listen: systemd_reload

@@ -1,5 +1,0 @@
-- name: open udp port for snmp
-  import_tasks: openports.yml
-
-- name: install and start snmpd
-  import_tasks: install_snmpd.yml
